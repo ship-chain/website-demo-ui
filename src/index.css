@@ -1,0 +1,28 @@
+body {
+  font-size: 14px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  box-sizing: border-box;
+}
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+}
+p {
+  margin: 0px;
+}
