@@ -3,7 +3,6 @@ import React, { FC, ReactElement, useEffect, useState } from 'react';
 import { apiGetBooks } from '../core/api/api';
 import styled from 'styled-components';
 
-
 const Wrapper = styled.div`
   display: flex;
 `;

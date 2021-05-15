@@ -10,11 +10,10 @@ export const apiRegister =
   async (dto: UserCreatDto) => await httpPost<UserEntity>(`${API_DOMAIN}/user/register`, dto);
 
 export const apiGetUser =
-  async () => await httpGet<UserEntity>(`${API_DOMAIN}/user`);
+  async () => await httpGet<UserEntity>(`${API_DOMAIN}/user/login`);
 
 export const apiGetBooks =
   async () => await httpGet<BookEntity[]>(`${API_DOMAIN}/book`);
-
 export const apiMintBook =
   async (dto: BookMintDto) => await httpPut<string>(`${API_DOMAIN}/book/mint`);
 

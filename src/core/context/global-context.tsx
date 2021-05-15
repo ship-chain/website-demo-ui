@@ -18,6 +18,8 @@ const GlobalContextProvider = React.memo(
     const logout = useCallback(() => setUser(undefined), []);
   
     useEffect(() => {
+      console.log('apiGetUser');
+      
       apiGetUser().then(user => setUser(user));
     }, []);
   

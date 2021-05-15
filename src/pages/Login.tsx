@@ -1,8 +1,8 @@
-import { BookEntity } from '@ship-website-demo/common';
-import React, { FC, ReactElement, useEffect, useState } from 'react';
-import { apiGetBooks, apiLogin } from '../core/api/api';
+import React, { FC, ReactElement, useState } from 'react';
+import { apiLogin } from '../core/api/api';
 import styled from 'styled-components';
 import { message, Input, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 
 const Wrapper = styled.div`
@@ -33,12 +33,15 @@ export const Login: FC = (): ReactElement => {
     username: string;
     password: string;
   });
+  const history = useHistory();
 
   const login = () => {
     apiLogin({
       password,
       name: username,
-    }).then(() => {}, () => message.error('登录失败'))
+    }).then(() => {
+      history.push('/');
+    }, () => message.error('登录失败'))
   };
   
   return (
@@ -51,6 +54,7 @@ export const Login: FC = (): ReactElement => {
         <Input placeholder="请输入密码" value={password} onChange={e => setUser({username, password: e.target.value})} />
       </div>
       <div>
+        <Button onClick={() => history.push('/register')}>注册</Button>
         <Button onClick={login}>登录</Button>
       </div>      
     </div>
