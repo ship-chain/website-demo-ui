@@ -18,6 +18,7 @@ const Body = styled.div`
 const AuthRoute: FC<{
   component: FC;
   path: string;
+  exact: boolean;
 }> = ({ component: Component, ...rest }): ReactElement => {
   const { user } = useContext(GlobalContext);
   const { location } = useRouter();
@@ -40,17 +41,16 @@ const App: FC = () => {
     <div className="App">
       <Header />
       <Body>
-        
-      <BrowserRouter>
-        <Switch>
-          <Suspense fallback={<PageLoading />}>
-            <AuthRoute path="/" component={Market} />
-            <Route path="/register" exact component={Register} />
-            <Route path="/login" exact component={Login} />
-            {/* <Route path="/user" exact component={ExtrinsicHolder} /> */}
-          </Suspense>
-        </Switch>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Switch>
+            <Suspense fallback={<PageLoading />}>
+              <Route path="/" exact component={Market} />
+              <Route path="/register" component={Register} />
+              <Route path="/login" component={Login} />
+              {/* <Route path="/user" exact component={ExtrinsicHolder} /> */}
+            </Suspense>
+          </Switch>
+        </BrowserRouter>
       </Body>
      <Footer />
     </div>

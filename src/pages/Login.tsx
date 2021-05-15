@@ -1,8 +1,9 @@
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, ReactElement, useContext, useState } from 'react';
 import { apiLogin } from '../core/api/api';
 import styled from 'styled-components';
 import { message, Input, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { GlobalContext } from '../core/context/global-context';
 
 
 const Wrapper = styled.div`
@@ -34,12 +35,14 @@ export const Login: FC = (): ReactElement => {
     password: string;
   });
   const history = useHistory();
+  const { update } = useContext(GlobalContext);
 
   const login = () => {
     apiLogin({
       password,
       name: username,
-    }).then(() => {
+    }).then(user => {
+      // setUser(user);
       history.push('/');
     }, () => message.error('登录失败'))
   };

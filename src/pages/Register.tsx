@@ -1,5 +1,6 @@
 import { Button, Input, message } from 'antd';
 import React, { FC, ReactElement, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { apiRegister } from '../core/api/api';
 
 export const Register: FC = (): ReactElement => {
@@ -10,12 +11,16 @@ export const Register: FC = (): ReactElement => {
     username: string;
     password: string;
   });
+  const history = useHistory();
 
   const register = () => {
     apiRegister({
       password,
       name: username,
-    }).then(() => message.success('创建成功'), () => message.error('创建失败'))
+    }).then(() => {
+      message.success('创建成功');
+      history.push('/login');
+    }, () => message.error('创建失败'))
   };
   
   return (

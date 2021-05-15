@@ -36,6 +36,7 @@ service.interceptors.request.use(
 )
 service.interceptors.response.use(
   (response: AxiosResponse<Res<any>>) => {
+    console.log('resuccess', response.data)
     return Promise.resolve(response.data.data);
     // if (response.data && response.data.code === 0) {
     // }
