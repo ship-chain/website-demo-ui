@@ -7,6 +7,7 @@ import { GlobalContext } from '../core/context/global-context';
 import { Login } from './Login';
 import PageLoading from './PageLoading';
 import useRouter from '../core/hooks/useRouter';
+import { Transfer } from './Transfer';
 
 const Header = styled.div``;
 const Footer = styled.div``
@@ -47,7 +48,7 @@ const App: FC = () => {
               <Route path="/" exact component={Market} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
-              {/* <Route path="/user" exact component={ExtrinsicHolder} /> */}
+              <Route path="/transfer" component={Transfer} />
             </Suspense>
           </Switch>
         </BrowserRouter>
